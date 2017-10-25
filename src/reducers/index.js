@@ -1,5 +1,4 @@
 import {CHANGE_COLOR, CREATE, DECREMENT, INCREMENT, REMOVE} from "../actions/actionTypes";
-import {getRandomColor} from "../utils/index";
 import {fromJS, Map} from 'immutable';
 
 
@@ -27,7 +26,7 @@ export const reducer = (state = initialState, action) => {
         case DECREMENT:
             return state.set('counters', counters.setIn([action.index, 'number'], counters.getIn([action.index, 'number']) - 1));
         case CHANGE_COLOR:
-            return state.set('counters', counters.setIn([action.index, 'color'], getRandomColor()));
+            return state.set('counters', counters.setIn([action.index, 'color'], action.color));
         default:
             return state;
     }

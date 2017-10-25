@@ -2,6 +2,7 @@ import React from 'react';
 import "./Counter.css"
 import {changeColor, decrement, increment} from "../actions/actionTypes";
 import {connect} from "react-redux";
+import {getRandomColor} from "../utils/index";
 
 class Counter extends React.Component {
     leftClickEvent() {
@@ -13,7 +14,7 @@ class Counter extends React.Component {
     }
 
     doubleClickEvent() {
-        this.props.onChangeColor(this.props.index);
+        this.props.onChangeColor(this.props.index, getRandomColor());
     }
 
     render() {
@@ -47,7 +48,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         onIncrement: (index) => dispatch(increment(index)),
         onDecrement: (index) => dispatch(decrement(index)),
-        onChangeColor: (index) => dispatch(changeColor(index))
+        onChangeColor: (index, color) => dispatch(changeColor(index, color))
     }
 };
 

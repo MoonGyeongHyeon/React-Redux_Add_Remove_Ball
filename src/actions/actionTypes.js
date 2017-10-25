@@ -34,10 +34,11 @@ export const decrement = (index) => {
     }
 };
 
-export const changeColor = (index) => {
+export const changeColor = (index, color) => {
     return {
         type: CHANGE_COLOR,
-        index
+        index,
+        color
     }
 };
 
