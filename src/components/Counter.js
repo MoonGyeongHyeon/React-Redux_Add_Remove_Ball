@@ -38,8 +38,8 @@ class Counter extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        number: state.counters[ownProps.index].number,
-        color: state.counters[ownProps.index].color
+        number: state.getIn(['counters', ownProps.index, 'number']),
+        color: state.getIn(['counters', ownProps.index, 'color'])
     }
 };
 

@@ -21,7 +21,7 @@ class App extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        counters: state.counters
+        counters: state.get('counters')
     }
 };
 
